@@ -1,0 +1,62 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: Email
+  steps:
+  - intent: send_email
+  - action: email_form
+  - active_loop: email_form
+
+- story: Provide To Address
+  steps:
+  - intent: provide_toaddress
+  - action: email_form
+  - active_loop: email_form
+
+- story: Provide Subject
+  steps:
+  - intent: provide_subject
+  - action: email_form
+  - active_loop: email_form
+
+- story: Provide Message
+  steps:
+  - intent: provide_message
+  - action: email_form
+  - active_loop: email_form
+
+- story: Submit Email Form
+  steps:
+  - intent: inform
+  - action: email_form
+  - active_loop: null
+  - action: action_submit
+
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

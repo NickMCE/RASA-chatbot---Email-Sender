@@ -1,0 +1,127 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: send_email
+  examples: |
+    - I want to send a mail
+    - send a mail
+    - send an email
+    - send email
+    - email
+
+- intent: provide_toaddress
+  examples: |
+    - Please send the email to john@example.com
+    - I want to email my friend at alice@gmail.com
+    - Send the email to support@company.com
+
+# Example training data for provide_subject
+- intent: provide_subject
+  examples: |
+    - The subject of the email is "Meeting Agenda"
+    - I'd like to discuss the project in the email
+    - Subject: Urgent issue
+
+# Example training data for provide_message
+- intent: provide_message
+  examples: |
+    - Here is the message: "Hi, I hope you're doing well."
+    - The email should contain the following message: "Please find the attached documents."
+    - Message: "Let's catch up soon."
+
+- intent: inform
+  examples: |
+    - I have a new email address: john@example.com
+    - My email has changed to john.doe@example.com
+    - Here's my updated email: john.doe@example.com
+    - You can contact me at my new email: john@example.com
+    - New email: john@example.com

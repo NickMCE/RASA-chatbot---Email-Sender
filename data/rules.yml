@@ -1,0 +1,54 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Handle the email form submission
+  condition:
+  - active_loop: email_form
+  steps:
+  - intent: inform
+  - action: email_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit
+
+- rule: Handle the email form slot asking for 'toaddress'
+  condition:
+  - active_loop: email_form
+  - slot_was_set:
+    - requested_slot: toaddress
+  steps:
+  - action: utter_ask_toaddress
+
+- rule: Handle the email form slot asking for 'subject'
+  condition:
+  - active_loop: email_form
+  - slot_was_set:
+    - requested_slot: subject
+  steps:
+  - action: utter_ask_subject
+
+- rule: Handle the email form slot asking for 'message'
+  condition:
+  - active_loop: email_form
+  - slot_was_set:
+    - requested_slot: message
+  steps:
+  - action: utter_ask_message
+
+- rule: Start the email form when 'send_email' intent is detected
+  steps:
+  - intent: send_email
+  - action: email_form
+  - active_loop: email_form
